@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AJAX Call Demo</title>
+</head>
+<body>
+  <h1>AJAX Call Demo</h1>
+  <button onclick="getHello()">Get Hello</button>
+  <div id="result"></div>
+
+  <script>
+    function getHello() {
+      // Make an AJAX call to the "/gethello" route
+      fetch('/gethello')
+        .then(response => response.text())
+        .then(data => {
+          // Display the response in the "result" div
+          document.getElementById('result').textContent = data;
+        })
+        
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello NodeJS</title>
+</head>
+<body>
+    <h1 id="message">Loading....!!!</h1>
+
+    <script>
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET','/gethello');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    document.getElementById('message').textContent = xhr.responseText;
+                }else {
+                    document.getElementById('message').textContent = "Falied to fetch data";
+                }
+            }
+        };
+        xhr.send();        
+    </script>
+</body>
+</html> -->

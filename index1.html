@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Socket</title>
+
+    <script>
+        var ws = new WebSocket('ws://localhost:2020');
+        ws.addEventListener('message', function(e){
+            var msg = e.data;
+            document.getElementById('chatlog').innerHTML+='<br> Server: '+msg;
+        });
+
+        function sendMessage(){
+            var message = document.getElementById('message').value;
+            document.getElementById('chatlog').innerHTML+='<br> Me: '+ message;
+            ws.send(message);
+            document.getElementById('message').value = '';
+        }
+    </script>
+</head>
+<body>
+    <h2>Data from Server</h2>
+     <div id="chatlog"></div>
+
+     <hr />
+
+    <h2>Data from client</h2> 
+     <input type="text" id="message" />
+     <input type="button" id="b1" onclick="sendMessage()" value="send" />
+
+</body>
+</html>
