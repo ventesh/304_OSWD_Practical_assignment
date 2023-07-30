@@ -1,0 +1,7 @@
+git init 
+git add .
+git brunch -m ICT
+git commit -m "first commit" 
+git remote add origin https://github.com/ventesh/304_OSWD_Prectical_assignment.git
+git branch  -m ICT
+git push -u origin ICT  
