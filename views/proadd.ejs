@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Category</title>
+</head>
+<body>
+    <form action="/data/proins" method="post" enctype="multipart/form-data">
+        Product Name : <input type="text" name="name"><br>
+        Category Name : 
+        <select name="cname">
+            <option value="">Select category</option>
+            <% for ( var i = 0 ; i < ct.length; i++){ %>
+                <option value="<%=ct[i].name%>"><%=ct[i].name%></option>
+            <% } %>
+        </select>
+        <br>
+        Price : <input type="number" name="price">
+        <br>
+        Image : <input type="file" name="image">
+        <button type="submit">Insert</button>
+    </form>
+</body>
+</html>
